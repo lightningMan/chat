@@ -1,0 +1,63 @@
+#container {
+	width: 100%;
+}
+
+#content {
+	margin: 0 auto;
+	min-height: 450px;
+	width: 960px;
+}
+
+
+#mainbar {
+	float: left;
+	margin-bottom: 40px;
+	width: 960px;
+}
+
+.editor-wrap {
+	position: relative;	
+	width: 960px;
+	height: 450px;
+}
+#editor {
+	width: 960px;
+	height: 450px;
+}
+#runArea {
+	width: 960px;
+	height: 40px;
+	position: relative;
+}
+#btn_click {
+	background-color: #333333;
+	border: 1px solid #000000 !important;
+	border-radius: 3px 3px 3px 3px;
+	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.4) inset;
+	color: #FFFFFF;
+	cursor: pointer;
+	font-size: 14px;
+	padding: 0.4em 0.8em;
+	position: absolute;
+	right: 0;
+	top: 5px;
+}
+#output {
+	margin-top: 5px;
+	padding: 10px;
+	width: 940px;
+	height: 120px;
+	background: #EEE;
+}
+#output code {
+	color: #a4c639;
+	font-size: 15px;
+}
+#sidebar {
+	float: right;
+	margin-bottom: 60px;
+	overflow: hidden;
+	height: 1000px;
+	width: 0; 
+	background: green;
+}
