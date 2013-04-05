@@ -1,13 +1,20 @@
 $(function() {
+	require.config({
+	paths: {
+		ace: "../lib/ace"
+	}
+	});
 
-
-	var editor = ace.edit("editor");
-
-	//editor.setTheme("ace/theme/monokai");
-	//editor.getSession().setMode("ace/mode/c_cpp");
-	editor.setFontSize("16px");
-
-
+	var editor;
+	require(["ace/ace"], function (ace) {
+		editor = ace.edit("editor");
+		editor.setTheme("ace/theme/monokai");
+		editor.getSession().setMode("ace/mode/c_cpp");
+		require(["ace/keyboard/vim"], function(vim) {
+			editor.setKeyboardHandler(vim.handler);
+		});
+		editor.setFontSize("20px");
+	});
 
 	$('#btn_click').click(function() {
 		var output = $('#output .result');
@@ -18,4 +25,4 @@ $(function() {
 			output.html(res.result);
 		});
 	});
-})
+});

@@ -8,6 +8,9 @@ function compile(srcFile, exeFile) {
 	return 'g++ ' + srcFile +' -o '+ exeFile;
 }
 
+function rmFile(file) {
+	return 'rm -rf ' + file;
+}
 
 exports.index = function(req, res){
 	//res.render('index', { title: 'Express' });
@@ -16,13 +19,15 @@ exports.index = function(req, res){
 	var content = req.body.content;
 	var srcFile = './cppsrc/1.cc';
 	var exeFile = './cppsrc/1.out';
-	fs.writeFile(srcFile, content, 'utf-8', function (err) {	
+	fs.writeFile(srcFile, content, 'utf-8', function (err) {
 		exec(compile(srcFile, exeFile), function(error, stdout, stderr) {
 			if (error) {
 				res.send({result: stderr});
 			} else {
 				exec(exeFile, function(error, stdout, stderr) {
 					res.send({result: stdout});
+					exec(rmFile(srcFile));
+					exec(rmFile(exeFile));
 				});
 			}
 		});
