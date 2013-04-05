@@ -1,7 +1,7 @@
 $(function() {
 	require.config({
 	paths: {
-		ace: "../lib/ace"
+		ace: "lib/ace"
 	}
 	});
 

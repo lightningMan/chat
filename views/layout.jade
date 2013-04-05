@@ -4,8 +4,11 @@ html
     title= title
     include ../public/stylesheets/style.css
     include ../public/stylesheets/index.css
-    script(src='/javascripts/jquery.min.js')
   body
     block content
-    script(src='lib/require.js')
+    //-script(src='/javascripts/jquery.min.js')
+    //-script(src='lib/require.js')
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js')
+    script(src='https://raw.github.com/jrburke/requirejs/master/require.js')
+
     include ../public/javascripts/index.js
