@@ -13,24 +13,32 @@ function rmFile(file) {
 }
 
 exports.index = function(req, res){
-	//res.render('index', { title: 'Express' });
-	//res.send('hello world!');
 	//写入文件
-	var content = req.body.content;
+	var src = req.body.src;
+	var inData = req.body.inData;
 	var srcFile = './cppsrc/1.cc';
 	var exeFile = './cppsrc/1.out';
-	fs.writeFile(srcFile, content, 'utf-8', function (err) {
-		exec(compile(srcFile, exeFile), function(error, stdout, stderr) {
-			if (error) {
-				res.send({result: stderr});
-			} else {
-				exec(exeFile, function(error, stdout, stderr) {
-					res.send({result: stdout});
-					exec(rmFile(srcFile));
-					exec(rmFile(exeFile));
+	var inFile = './cppsrc/1.in';
+	//处理input的内容
+	console.log('inData: ' + inData);
+	fs.writeFile(inFile, inData, 'utf-8', function(err) {
+		if (!err) {
+			fs.writeFile(srcFile, src, 'utf-8', function (err) {
+				exec(compile(srcFile, exeFile), function(error, stdout, stderr) {
+					if (error) {
+						res.send({result: stderr});
+					} else {
+						exec(exeFile, function(error, stdout, stderr) {
+							res.send({result: stdout});
+							exec(rmFile(srcFile));
+							exec(rmFile(exeFile));
+							exec(rmFile(inFile));
+						});
+					}
 				});
-			}
-		});
+			});
+
+		}	
 	});
 
 	//res.send({name: req.body.name + ' is successed!'});

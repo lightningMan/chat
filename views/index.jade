@@ -1,13 +1,61 @@
 extends layout
 block content
     #container
-        #content
-            #mainbar
-                .editor-wrap
-                    #editor
-                #runArea
-                    button#btn_click='运 行'
-                #output
-                    pre
-                        code.result
-            #sidebar
+        #config
+            .titleArea
+                h3 个性化
+            .configArea
+                span.configTitle 主题
+                span.configSelect#themeSelect
+                    select(size="1")
+                        optgroup(label="黑色调") 
+                            option(value="ace/theme/ambiance") Ambiance
+                            option(value="ace/theme/chaos") Chaos
+                            option(value="ace/theme/clouds_midnight") Clouds Midnight
+                            option(value="ace/theme/cobalt") Cobalt
+                            option(value="ace/theme/idle_fingers") idleFingers
+                            option(value="ace/theme/kr_theme") krTheme
+                            option(value="ace/theme/merbivore") Merbivore
+                            option(value="ace/theme/merbivore_soft") Merbivore Soft
+                            option(value="ace/theme/mono_industrial") Mono Industrial
+                            option(value="ace/theme/monokai", selected) Monokai
+                            option(value="ace/theme/pastel_on_dark") Pastel on dark
+                            option(value="ace/theme/solarized_dark") Solarized Dark
+                            option(value="ace/theme/twilight") Twilight
+                            option(value="ace/theme/tomorrow_night") Tomorrow Night
+                            option(value="ace/theme/tomorrow_night_blue") Tomorrow Night Blue
+                            option(value="ace/theme/tomorrow_night_bright") Tomorrow Night Bright
+                            option(value="ace/theme/tomorrow_night_eighties") Tomorrow Night 80s
+                            option(value="ace/theme/vibrant_ink") Vibrant Ink
+                        optgroup(label="亮色调")
+                            option(value="ace/theme/chrome") Chrome
+                            option(value="ace/theme/clouds") Clouds
+                            option(value="ace/theme/crimson_editor") Crimson Editor
+                            option(value="ace/theme/dawn") Dawn
+                            option(value="ace/theme/crimson_editor") Crimson Editor
+                            option(value="ace/theme/eclipse") Eclipse
+                            option(value="ace/theme/github") GitHub
+                            option(value="ace/theme/solarized_light") Solarized Light
+                            option(value="ace/theme/textmate" ) TextMate
+                            option(value="ace/theme/tomorrow") Tomorrow
+                            option(value="ace/theme/xcode") XCode
+                span.configTitle 键盘绑定
+                span.configSelect#keybingsSelect
+                    select(size="1")
+                        option(value="") 不绑定
+                        option(value="ace/keyboard/vim", selected) vim
+                        option(value="ace/keyboard/emacs") emacs
+        #editor-wrap
+            #editor
+        #ioArea
+            #inputArea
+                .titleArea
+                    h3 输入
+                textarea
+            #runArea
+                button#btn_click='运 行'
+            #outputArea
+                .titleArea
+                    h3 输出
+                pre
+                    code.result
