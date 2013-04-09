@@ -5,3 +5,4 @@ cppsrc/*
 *.swp
 *~
 *.css
+node_modules/*
