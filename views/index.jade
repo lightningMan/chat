@@ -2,49 +2,85 @@ extends layout
 block content
     #container
         #config
-            .titleArea
-                h3 个性化
             .configArea
-                span.configTitle 主题
-                span.configSelect#themeSelect
-                    select(size="1")
-                        optgroup(label="黑色调") 
-                            option(value="ace/theme/ambiance") Ambiance
-                            option(value="ace/theme/chaos") Chaos
-                            option(value="ace/theme/clouds_midnight") Clouds Midnight
-                            option(value="ace/theme/cobalt") Cobalt
-                            option(value="ace/theme/idle_fingers") idleFingers
-                            option(value="ace/theme/kr_theme") krTheme
-                            option(value="ace/theme/merbivore") Merbivore
-                            option(value="ace/theme/merbivore_soft") Merbivore Soft
-                            option(value="ace/theme/mono_industrial") Mono Industrial
-                            option(value="ace/theme/monokai", selected) Monokai
-                            option(value="ace/theme/pastel_on_dark") Pastel on dark
-                            option(value="ace/theme/solarized_dark") Solarized Dark
-                            option(value="ace/theme/twilight") Twilight
-                            option(value="ace/theme/tomorrow_night") Tomorrow Night
-                            option(value="ace/theme/tomorrow_night_blue") Tomorrow Night Blue
-                            option(value="ace/theme/tomorrow_night_bright") Tomorrow Night Bright
-                            option(value="ace/theme/tomorrow_night_eighties") Tomorrow Night 80s
-                            option(value="ace/theme/vibrant_ink") Vibrant Ink
-                        optgroup(label="亮色调")
-                            option(value="ace/theme/chrome") Chrome
-                            option(value="ace/theme/clouds") Clouds
-                            option(value="ace/theme/crimson_editor") Crimson Editor
-                            option(value="ace/theme/dawn") Dawn
-                            option(value="ace/theme/crimson_editor") Crimson Editor
-                            option(value="ace/theme/eclipse") Eclipse
-                            option(value="ace/theme/github") GitHub
-                            option(value="ace/theme/solarized_light") Solarized Light
-                            option(value="ace/theme/textmate" ) TextMate
-                            option(value="ace/theme/tomorrow") Tomorrow
-                            option(value="ace/theme/xcode") XCode
-                span.configTitle 键盘绑定
-                span.configSelect#keybingsSelect
-                    select(size="1")
-                        option(value="null") 不绑定
-                        option(value="ace/keyboard/vim", selected) vim
-                        option(value="ace/keyboard/emacs") emacs
+                .titleArea
+                    h3 个性化
+                .configSpan
+                    span.configTitle 主题
+                    span.configSelect#themeSelect
+                        select(size="1")
+                            optgroup(label="亮色调")
+                                option(value="ace/theme/chrome") Chrome
+                                option(value="ace/theme/clouds") Clouds
+                                option(value="ace/theme/dawn") Dawn
+                                option(value="ace/theme/eclipse") Eclipse
+                                option(value="ace/theme/github") GitHub
+                                option(value="ace/theme/textmate", selected) TextMate
+                                option(value="ace/theme/tomorrow") Tomorrow
+                                option(value="ace/theme/xcode") XCode
+                            optgroup(label="黑色调") 
+                                option(value="ace/theme/ambiance") Ambiance
+                                option(value="ace/theme/chaos") Chaos
+                                option(value="ace/theme/cobalt") Cobalt
+                                option(value="ace/theme/idle_fingers") idleFingers
+                                option(value="ace/theme/kr_theme") krTheme
+                                option(value="ace/theme/merbivore") Merbivore
+                                option(value="ace/theme/monokai") Monokai
+                                option(value="ace/theme/twilight") Twilight
+                .configSpan
+                    span.configTitle 键盘绑定
+                    span.configSelect#keybingsSelect
+                        select(size="1")
+                            option(value="null", selected) 不绑定
+                            option(value="ace/keyboard/vim") vim
+                            option(value="ace/keyboard/emacs") emacs
+                .configSpan
+                    span.configTitle 字体样式
+                    span.configSelect#fontStyleSelect
+                        select(size="1")
+                            option(value="Consolas") Consolas
+                            option(value="Monaco", selected) Monaco
+                            option(value="monospace") monospace (仅chrome)
+                .configSpan
+                    span.configTitle 字体大小
+                    span.configSelect#fontSizeSelect
+                        select(size="1")
+                            option(value="12px", selected) 12px
+                            option(value="14px") 14px
+                            option(value="16px") 16px
+                            option(value="18px") 18px
+                            option(value="20px") 20px
+                            option(value="22px") 22px
+                            option(value="24px") 24px
+                            option(value="26px") 26px
+            .configArea.shortCut
+                .titleArea
+                    h3 快捷键
+                .configSpan
+                    span.configTitle
+                        运行
+                    span.configSelect
+                        ="Ctrl + Enter"
+                .configSpan
+                    span.configTitle
+                        查找
+                    span.configSelect
+                        ="Ctrl + F"
+                .configSpan
+                    span.configTitle
+                        替换
+                    span.configSelect
+                        ="Ctrl + F (两次)"
+                .configSpan
+                    span.configTitle
+                        删行
+                    span.configSelect
+                        ="Ctrl + D"
+                .configSpan
+                    span.configTitle
+                        行跳转
+                    span.configSelect
+                        ="Ctrl + L"
         #editor-wrap
             #editor
         #ioArea

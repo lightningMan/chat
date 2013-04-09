@@ -20,3 +20,8 @@ code {
 .hide {
   display: none;
 }
+select {
+  color: #555;
+  border: 1px solid #ccc;
+  background: #fff;
+}

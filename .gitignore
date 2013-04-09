@@ -1,2 +1,7 @@
 cppsrc/*
+# Ignore all swo
+*.swo
+# Ignore vim swap files
 *.swp
+*~
+*.css

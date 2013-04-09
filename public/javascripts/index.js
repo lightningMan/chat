@@ -1,23 +1,12 @@
 $(function() {
-	var cpp_src = '#include <stdio.h>\n#include <iostream>\nusing namespace std;\n\nint main()\n{\n  freopen("cppsrc/1.in", "r", stdin);\n\n  //write you code here\n  cout << "hello world" << endl;\n}\n'
+	var cpp_src = '#include <stdio.h>\n#include <iostream>\nusing namespace std;\n\nint main()\n{\n  freopen("cppsrc/1.in", "r", stdin);\n\n  // 在这里书写你的代码\n  cout << "hello world" << endl;\n}\n'
 	require.config({
 		paths: {
 			ace: "lib/ace"
 		}
 	});
 
-var editor;
-require(["ace/ace"], function (ace) {
-	editor = ace.edit("editor");
-	editor.setTheme("ace/theme/monokai");
-	editor.getSession().setMode("ace/mode/c_cpp");
-	require(["ace/keyboard/vim"], function(vim) {
-		editor.setKeyboardHandler(vim.handler);
-	});
-	//设置文件内容
-	editor.getSession().setValue(cpp_src);
-});
-$('#btn_click').click(function() {
+function run() {
 	var output = $('#outputArea .result');
 	var input = $('#inputArea textarea');
 	output.text('正在运行...');
@@ -25,11 +14,31 @@ $('#btn_click').click(function() {
 	var inData = input.val();
 	var data = {
 		src: src,
-	inData: inData
+inData: inData
 	};
 	$.post('/test', data, function(res) {
 		output.html(res.result);
 	});
+}
+
+var editor;
+require(["ace/ace"], function (ace) {
+	editor = ace.edit("editor");
+	editor.getSession().setMode("ace/mode/c_cpp");
+	editor.getSession().setValue(cpp_src);
+	editor.gotoLine(10, 100, false);
+	editor.focus();
+
+	editor.commands.addCommands([{
+		name: "run",
+		bindKey: {win: "Ctrl-Return", mac: "Command-Return"},
+		exec: function() {
+			run();
+		}
+	}]);
+});
+$('#btn_click').click(function() {
+	run();
 });
 //设置主题
 $('#themeSelect select').change(function() {
@@ -45,5 +54,18 @@ $('#keybingsSelect select').change(function() {
 
 		});
 	}
+});
+//设置字体大小
+$('#fontSizeSelect select').change(function() {
+  editor.setFontSize($(this).val());
+});
+
+// 设置字体样式
+function setFont(o, fontStyle) {
+	o.css({'font-family': fontStyle});
+}
+var $editor = $('#editor');
+$('#fontStyleSelect select').change(function() {
+	setFont($editor, $(this).val());
 });
 });

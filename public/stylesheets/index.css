@@ -7,21 +7,49 @@
   height: 100%;
   padding: 1%;
 }
+#container #config .configArea {
+  margin-bottom: 50px;
+}
+#container #config .configArea .configSpan {
+  position: relative;
+  margin-bottom: 20px;
+}
+#container #config .configArea .configSpan .configSelect {
+  position: absolute;
+  left: 75px;
+}
+#container #config .configArea .configSpan .configSelect select {
+  width: 110px;
+}
+#container #config .shortCut .configSelect {
+  padding: 4px 6px;
+  font-size: 11.844px;
+  font-weight: bold;
+  line-height: 14px;
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+  background-color: #999;
+  border-radius: 3px;
+  display: inline-block;
+}
 #container #editor-wrap {
   position: absolute;
   left: 15%;
   top: 0;
-  width: 45%;
+  width: 48%;
 }
 #container #editor-wrap #editor {
   width: 100%;
-  height: 700px;
+  height: 1000px;
 }
 #ioArea {
   position: absolute;
   right: 20px;
-  top: 10px;
+  top: 0;
   width: 35%;
+}
+#ioArea #inputArea .titleArea h3 {
+  margin-top: 2px;
 }
 #ioArea #inputArea textarea {
   width: 96%;
