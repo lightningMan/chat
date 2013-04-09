@@ -3,8 +3,7 @@
  */
 var Collection = require('./collection').Collection,
     Cursor = require('./cursor').Cursor,
-    DbCommand = require('./commands/db_command').DbCommand,
-    utils = require('./utils');
+    DbCommand = require('./commands/db_command').DbCommand;
 
 /**
  * Allows the user to access the admin functionality of MongoDB
@@ -22,7 +21,7 @@ function Admin(db) {
  * Retrieve the server information for the current
  * instance of the db client
  *
- * @param {Function} callback this will be called after executing this method. The first parameter will contain the Error object if an error occured, or null otherwise. While the second parameter will contain the results from buildInfo or null if an error occured.
+ * @param {Function} callback Callback function of format `function(err, result) {}`.
  * @return {null} Returns no result
  * @api public
  */
@@ -34,7 +33,7 @@ Admin.prototype.buildInfo = function(callback) {
  * Retrieve the server information for the current
  * instance of the db client
  *
- * @param {Function} callback this will be called after executing this method. The first parameter will contain the Error object if an error occured, or null otherwise. While the second parameter will contain the results from serverInfo or null if an error occured.
+ * @param {Function} callback Callback function of format `function(err, result) {}`.
  * @return {null} Returns no result
  * @api private
  */
@@ -48,7 +47,7 @@ Admin.prototype.serverInfo = function(callback) {
 /**
  * Retrieve this db's server status.
  *
- * @param {Function} callback this will be called after executing this method. The first parameter will contain the Error object if an error occured, or null otherwise. While the second parameter will contain the results from serverStatus or null if an error occured.
+ * @param {Function} callback returns the server status.
  * @return {null}
  * @api public
  */
@@ -60,7 +59,7 @@ Admin.prototype.serverStatus = function(callback) {
       callback(null, doc.documents[0]);
     } else {
       if(err) return callback(err, false);
-      return callback(utils.toError(doc.documents[0]), false);
+      return callback(self.wrap(doc.documents[0]), false);
     }
   });
 };
@@ -68,7 +67,7 @@ Admin.prototype.serverStatus = function(callback) {
 /**
  * Retrieve the current profiling Level for MongoDB
  *
- * @param {Function} callback this will be called after executing this method. The first parameter will contain the Error object if an error occured, or null otherwise. While the second parameter will contain the results from profilingLevel or null if an error occured.
+ * @param {Function} callback Callback function of format `function(err, result) {}`.
  * @return {null} Returns no result
  * @api public
  */
@@ -93,7 +92,7 @@ Admin.prototype.profilingLevel = function(callback) {
 /**
  * Ping the MongoDB server and retrieve results
  *
- * @param {Function} callback this will be called after executing this method. The first parameter will contain the Error object if an error occured, or null otherwise. While the second parameter will contain the results from ping or null if an error occured.
+ * @param {Function} callback Callback function of format `function(err, result) {}`.
  * @return {null} Returns no result
  * @api public
  */
@@ -110,7 +109,7 @@ Admin.prototype.ping = function(options, callback) {
  *
  * @param {String} username The user name for the authentication.
  * @param {String} password The password for the authentication.
- * @param {Function} callback this will be called after executing this method. The first parameter will contain the Error object if an error occured, or null otherwise. While the second parameter will contain the results from authenticate or null if an error occured.
+ * @param {Function} callback Callback function of format `function(err, result) {}`.
  * @return {null} Returns no result
  * @api public
  */
@@ -124,7 +123,7 @@ Admin.prototype.authenticate = function(username, password, callback) {
  * Logout current authenticated user
  *
  * @param {Object} [options] Optional parameters to the command.
- * @param {Function} callback this will be called after executing this method. The first parameter will contain the Error object if an error occured, or null otherwise. While the second parameter will contain the results from logout or null if an error occured.
+ * @param {Function} callback Callback function of format `function(err, result) {}`.
  * @return {null} Returns no result
  * @api public
  */
@@ -144,7 +143,7 @@ Admin.prototype.logout = function(callback) {
  * @param {String} username The user name for the authentication.
  * @param {String} password The password for the authentication.
  * @param {Object} [options] additional options during update.
- * @param {Function} callback this will be called after executing this method. The first parameter will contain the Error object if an error occured, or null otherwise. While the second parameter will contain the results from addUser or null if an error occured.
+ * @param {Function} callback Callback function of format `function(err, result) {}`.
  * @return {null} Returns no result
  * @api public
  */
@@ -168,7 +167,7 @@ Admin.prototype.addUser = function(username, password, options, callback) {
  *
  * @param {String} username The user name for the authentication.
  * @param {Object} [options] additional options during update.
- * @param {Function} callback this will be called after executing this method. The first parameter will contain the Error object if an error occured, or null otherwise. While the second parameter will contain the results from removeUser or null if an error occured.
+ * @param {Function} callback Callback function of format `function(err, result) {}`.
  * @return {null} Returns no result
  * @api public
  */
@@ -188,7 +187,7 @@ Admin.prototype.removeUser = function(username, options, callback) {
  * Set the current profiling level of MongoDB
  *
  * @param {String} level The new profiling level (off, slow_only, all)
- * @param {Function} callback this will be called after executing this method. The first parameter will contain the Error object if an error occured, or null otherwise. While the second parameter will contain the results from setProfilingLevel or null if an error occured.
+ * @param {Function} callback Callback function of format `function(err, result) {}`.
  * @return {null} Returns no result
  * @api public
  */
@@ -222,13 +221,15 @@ Admin.prototype.setProfilingLevel = function(level, callback) {
 /**
  * Retrive the current profiling information for MongoDB
  *
- * @param {Function} callback this will be called after executing this method. The first parameter will contain the Error object if an error occured, or null otherwise. While the second parameter will contain the results from profilingInfo or null if an error occured.
+ * @param {Function} callback Callback function of format `function(err, result) {}`.
  * @return {null} Returns no result
  * @api public
  */
 Admin.prototype.profilingInfo = function(callback) {
   try {
-    new Cursor(this.db, new Collection(this.db, DbCommand.SYSTEM_PROFILE_COLLECTION), {}, {}, {dbName: 'admin'}).toArray(function(err, items) {
+    new Cursor(this.db, new Collection(this.db, DbCommand.SYSTEM_PROFILE_COLLECTION), {}, null, null, null
+      , null, null, null, null, null, null, null, null, null, null
+      , null, null, null, null, null, null, null, null, 'admin').toArray(function(err, items) {
         return callback(err, items);
     });
   } catch (err) {
@@ -241,7 +242,7 @@ Admin.prototype.profilingInfo = function(callback) {
  *
  * @param {Object} command A command object `{ping:1}`.
  * @param {Object} [options] Optional parameters to the command.
- * @param {Function} callback this will be called after executing this method. The command always return the whole result of the command as the second parameter.
+ * @param {Function} callback Callback function of format `function(err, result) {}`.
  * @return {null} Returns no result
  * @api public
  */
@@ -263,7 +264,7 @@ Admin.prototype.command = function(command, options, callback) {
  *
  * @param {String} collectionName The name of the collection to validate.
  * @param {Object} [options] Optional parameters to the command.
- * @param {Function} callback this will be called after executing this method. The first parameter will contain the Error object if an error occured, or null otherwise. While the second parameter will contain the results from validateCollection or null if an error occured.
+ * @param {Function} callback Callback function of format `function(err, result) {}`.
  * @return {null} Returns no result
  * @api public
  */
@@ -303,7 +304,7 @@ Admin.prototype.validateCollection = function(collectionName, options, callback)
 /**
  * List the available databases
  *
- * @param {Function} callback this will be called after executing this method. The first parameter will contain the Error object if an error occured, or null otherwise. While the second parameter will contain the results from listDatabases or null if an error occured.
+ * @param {Function} callback Callback function of format `function(err, result) {}`.
  * @return {null} Returns no result
  * @api public
  */
@@ -318,7 +319,7 @@ Admin.prototype.listDatabases = function(callback) {
 /**
  * Get ReplicaSet status
  *
- * @param {Function} callback this will be called after executing this method. The first parameter will contain the Error object if an error occured, or null otherwise. While the second parameter will contain the results from replSetGetStatus or null if an error occured.
+ * @param {Function} callback returns the replica set status (if available).
  * @return {null}
  * @api public
  */
@@ -329,7 +330,7 @@ Admin.prototype.replSetGetStatus = function(callback) {
     if(err == null && doc.documents[0].ok === 1)
       return callback(null, doc.documents[0]);
     if(err) return callback(err, false);
-    return callback(utils.toError(doc.documents[0]), false);
+    return callback(self.db.wrap(doc.documents[0]), false);
   });
 };
 

@@ -1,10 +1,5 @@
 var Stream = require('stream').Stream,
-  timers = require('timers'),
   util = require('util');
-
-// Set processor, setImmediate if 0.10 otherwise nextTick
-var processor = timers.setImmediate ? timers.setImmediate : process.nextTick;
-processor = process.nextTick
 
 /**
  * ReadStream
@@ -31,7 +26,7 @@ function ReadStream(autoclose, gstore) {
 
   this.finalLength = gstore.length - gstore.position;
   this.completedLength = 0;
-  this.currentChunkNumber = gstore.currentChunk.chunkNumber;
+  this.currentChunkNumber = 0;
 
   this.paused = false;
   this.readable = true;
@@ -40,12 +35,9 @@ function ReadStream(autoclose, gstore) {
   
   // Calculate the number of chunks
   this.numberOfChunks = Math.ceil(gstore.length/gstore.chunkSize);
-
-  // This seek start position inside the current chunk
-  this.seekStartPosition = gstore.position - (this.currentChunkNumber * gstore.chunkSize);
   
   var self = this;
-  processor(function() {
+  process.nextTick(function() {
     self._execute();
   });
 };
@@ -89,18 +81,7 @@ ReadStream.prototype._execute = function() {
     last = true;    
   }
 
-  // Data setup
-  var data = null;
-
-  // Read a slice (with seek set if none)
-  if(this.seekStartPosition > 0 && (gstore.currentChunk.length() - this.seekStartPosition) > 0) {
-    data = gstore.currentChunk.readSlice(gstore.currentChunk.length() - this.seekStartPosition);
-    this.seekStartPosition = 0;
-  } else {
-    data = gstore.currentChunk.readSlice(gstore.currentChunk.length());
-  }
-
-  // Return the data
+  var data = gstore.currentChunk.readSlice(gstore.currentChunk.length());
   if(data != null && gstore.currentChunk.chunkNumber == self.currentChunkNumber) {
     self.currentChunkNumber = self.currentChunkNumber + 1;
     self.completedLength += data.length;
@@ -185,7 +166,7 @@ ReadStream.prototype.resume = function() {
     
   this.paused = false;
   var self = this;
-  processor(function() {
+  process.nextTick(function() {
     self._execute();
   });
 };
