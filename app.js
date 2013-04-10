@@ -9,7 +9,8 @@ var express = require('express')
   , code = require('./routes/code')
   , http = require('http')
   , path = require('path')
-  , db = require('./dao/codeDao');
+  , db = require('./dao/codeDao')
+  , iLog = require('./tools/iLog');
 
 var app =  module.exports = express();
 
@@ -26,13 +27,14 @@ app.configure(function(){
   app.use(express.static(path.join(__dirname, 'public')));
 });
 
-app.configure('development', function(){
+app.configure('product', function(){
   app.use(express.errorHandler());
 });
 
 app.get('/', routes.index);
 app.post('/test', test.index);
 app.post('/code', code.save);
+app.get('/log', iLog.show);
 app.get('/:id', code.show);
 
 

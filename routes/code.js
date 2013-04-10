@@ -1,4 +1,5 @@
 var urlTool = require('../tools/getShortUrl');
+var ipTool = require('../tools/ipTool');
 
 var config = require('../config');
 var db = require('../dao/codeDao');
@@ -7,6 +8,7 @@ exports.save = function (req, res) {
 	var  src = req.body.src;
 	var  input = req.body.input;
 	var id = urlTool.get(src+input);
+	ipTool.logShareCode(req);
 	if (src) {
 		db.addCode(id, src, input, function(err, doc) {
 			if (!err) {

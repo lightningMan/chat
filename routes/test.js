@@ -1,4 +1,5 @@
 var exec = require('child_process').exec;
+var ipTool = require('../tools/ipTool');
 var fs = require('fs');
 var cmd = require('../tools/icommand')
 /*
@@ -16,6 +17,7 @@ exports.index = function(req, res){
 	var inData = req.body.inData;
 	//处理input的内容
 	//console.log('inData: ' + inData);
+	ipTool.logRunCode(req);
 	fs.writeFile(inFile, inData, 'utf-8', function(err) {
 		if (!err) {
 			fs.writeFile(srcFile, src, 'utf-8', function (err) {
@@ -25,9 +27,9 @@ exports.index = function(req, res){
 					} else {
 						exec(exeFile, function(error, stdout, stderr) {
 							res.send({result: stdout});
-							//exec(cmd.rm(srcFile));
-							//exec(cmd.rm(exeFile));
-							//exec(cmd.rm(inFile));
+							exec(cmd.rm(srcFile));
+							exec(cmd.rm(exeFile));
+							exec(cmd.rm(inFile));
 						});
 					}
 				});
