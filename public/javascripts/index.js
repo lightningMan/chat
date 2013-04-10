@@ -20,13 +20,37 @@ inData: inData
 		output.html(res.result);
 	});
 }
+function share() {
+	var output = $('#outputArea .result');
+	var input = $('#inputArea textarea');
+	output.text('正在运行...');
+	var src = editor.getSession().getValue();
+	var inData = input.val();
+	var data = {
+		src: src,
+input: inData
+	};
+	$.post('/code', data, function(res) {
+		if (res.success == 1) {
+		  $('.result').html('保存成功\n您的代码地址为: ' + location.host + '/' + res.id);
+		} else {
+		  $('.result').html('保存失败\n' + res.msg);
+		}
+	});
 
+}
 var editor;
 require(["ace/ace"], function (ace) {
 	editor = ace.edit("editor");
 	editor.getSession().setMode("ace/mode/c_cpp");
+	if ($('#hideSrc')) {
+	editor.getSession().setValue($('#hideSrc').text());
+	
+	} else {
 	editor.getSession().setValue(cpp_src);
+
 	editor.gotoLine(10, 100, false);
+	}
 	editor.focus();
 
 	editor.commands.addCommands([{
@@ -39,6 +63,9 @@ require(["ace/ace"], function (ace) {
 });
 $('#btn_click').click(function() {
 	run();
+});
+$('#btn_share').click(function() {
+	share();
 });
 //设置主题
 $('#themeSelect select').change(function() {

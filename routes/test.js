@@ -38,6 +38,8 @@ exports.index = function(req, res){
 				});
 			});
 
+		} else {
+		  console.log('写入文件失败!');
 		}	
 	});
 
