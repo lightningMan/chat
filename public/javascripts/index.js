@@ -43,13 +43,11 @@ var editor;
 require(["ace/ace"], function (ace) {
 	editor = ace.edit("editor");
 	editor.getSession().setMode("ace/mode/c_cpp");
-	if ($('#hideSrc')) {
-	editor.getSession().setValue($('#hideSrc').text());
-	
+	if ($('#hideSrc').length > 0) {
+		editor.getSession().setValue($('#hideSrc').text());
 	} else {
-	editor.getSession().setValue(cpp_src);
-
-	editor.gotoLine(10, 100, false);
+		editor.getSession().setValue(cpp_src);
+		editor.gotoLine(10, 100, false);
 	}
 	editor.focus();
 
