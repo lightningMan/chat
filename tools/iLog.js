@@ -1,3 +1,4 @@
+var db = require('../dao/codeDao');
 var fs = require('fs');
 var logFile = './record.log';
 Date.prototype.Format = function (fmt) { //author: meizz 
@@ -17,20 +18,18 @@ Date.prototype.Format = function (fmt) { //author: meizz
 }
 
 function getDate() {
-return (new Date()).Format("yyyy-M-d h:m:s");
+	return (new Date()).Format("yyyy-M-d h:m:s");
 }
 exports.log = function(str) {
   str = str + ' at ' +  getDate();
   console.log(str);
-  fs.appendFile(logFile, str + '\n', function (err) {
-	  if (err)
-	    console.log('写入文件出错');
-});
-}
+  db.simpleLog(str, function(err, doc) {
+    console.log('插入日志成功: ' + doc.id);
+  })
+};
 
-function getLog() {
-  return fs.readFileSync(logFile);
-}
 exports.show = function(req, res) {
-	res.render('log', { log: getLog()});
+	db.findAllLog(function(err, docs) {
+		res.render('log', { logs: docs});
+	});
 }

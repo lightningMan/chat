@@ -21,10 +21,29 @@ var CodeScheme = new Schema({
 	post_date: {type: Date, default: Date.now}
 });
 
+var SimpleLogSchema = new Schema({
+  log: {type: String}
+});
+
 //访问todo对象模型
 mongoose.model('Code2', CodeScheme);
 var Code = mongoose.model('Code2');
+mongoose.model('SimpleLog', SimpleLogSchema);
+var SimpleLog = mongoose.model('SimpleLog');
 
+exports.simpleLog = function(log, callback) {
+  var ilog = new SimpleLog();
+  ilog.log = log;
+  ilog.save(function(err, doc) {
+    callback(err, doc);
+  })
+}
+exports.findAllLog = function(callback) {
+
+	SimpleLog.find({}, function(err, logs) {
+	  callback(err, logs);
+	});
+}
 exports.addCode = function(id, src, input, callback) {
     var code = new Code();
 	code.id = id;
