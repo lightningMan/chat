@@ -13,6 +13,7 @@ exports.save = function (req, res) {
 		db.addCode(id, src, input, function(err, doc) {
 			if (!err) {
 			  res.send({success: 1, msg:'成功插入链接', id: doc.id});
+			  ipTool.logShareCodeWithId(req, id);
 			} else{
 			res.send({success: -1, msg: '保存源码失败,已经存在此源码'});
 			}

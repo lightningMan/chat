@@ -18,3 +18,7 @@ exports.logRunCode = function(req) {
  var ip = getClientIP(req);
  iLog.log('[Run Code]: ' + ip);
 }
+exports.logShareCodeWithId = function(req, id) {
+  var ip = getClientIP(req);
+  iLog.log('[哈哈: Code Id]: ' + id);
+}
