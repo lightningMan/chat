@@ -95,11 +95,12 @@ block content
             - if (typeof(src) !== 'undefined')
                 .hide#hideSrc=src
             #editor
+                img.inLoading(src='./images/loading.gif')
 
         #ioArea
             #inputArea
                 .titleArea
-                    h3 输入
+                    h3 数据
                 textarea
                     - if (typeof(input) !== 'undefined')
                         =input

@@ -43,6 +43,13 @@
   width: 100%;
   height: 100%;
 }
+#container #editor-wrap #editor .inLoading {
+  position: absolute;
+  left: 40%;
+  top: 40%;
+  width: 200px;
+  height: 20px;
+}
 #ioArea {
   position: absolute;
   right: 20px;
