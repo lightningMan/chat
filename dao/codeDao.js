@@ -38,6 +38,9 @@ exports.addCode = function(id, src, input, callback) {
 
 exports.findCodeById = function(id, callback){
 	Code.findOne({id: id}, function(err,doc){
+		if (!err)
 		callback(err, doc);
+		else
+		callback(err, null);
 	});
 };

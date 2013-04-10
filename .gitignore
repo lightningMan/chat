@@ -6,3 +6,4 @@ cppsrc/*
 *~
 *.css
 node_modules/*
+public/javascripts/*.swp

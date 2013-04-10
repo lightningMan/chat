@@ -10,9 +10,9 @@ exports.save = function (req, res) {
 	if (src) {
 		db.addCode(id, src, input, function(err, doc) {
 			if (!err) {
-			  res.send({success: 1, msg:'成功插入链接', id: doc.id});		
+			  res.send({success: 1, msg:'成功插入链接', id: doc.id});
 			} else{
-			res.send({success: -1, msg: '保存源码失败,已经存在此源码'});	
+			res.send({success: -1, msg: '保存源码失败,已经存在此源码'});
 			}
 		})
 	} else
@@ -24,6 +24,9 @@ exports.show = function(req, res) {
 	var id = req.params['id'];
 	console.log('id: ' + id);
 	db.findCodeById(id, function(err, doc) {
+		if (doc == null)
+		res.render('index', {title: '在线编译'});
+		else
 		res.render('index', {title: '在线编译', src: doc.src, input: doc.input});
 	//console.log(doc.src);
 	  //res.send(doc.src);
