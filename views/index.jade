@@ -85,7 +85,7 @@ block content
                     span.configTitle
                         反撤销
                     span.configSelect
-                        ="Ctrl + Shift + Z"
+                        ="Ctrl+Shift + Z"
                 .configSpan
                     span.configTitle
                         行跳转
@@ -104,8 +104,10 @@ block content
                     - if (typeof(input) !== 'undefined')
                         =input
             #runArea
-                button#btn_share='分享源代码'
-                button#btn_click='运 行'
+                button#btn_share.btn.btn-success(title='创建本页代码的链接')
+                    ='创建分享链接'
+                button#btn_click.btn.btn-inverse(title='在云端运行并返回结果')
+                    ='运 行'
             #outputArea
                 .titleArea
                     h3 输出
