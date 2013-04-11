@@ -1,5 +1,5 @@
 $(function() {
-	var cpp_src = '#include <stdio.h>\n#include <iostream>\nusing namespace std;\n\nint main()\n{\n  freopen("cppsrc/1.in", "r", stdin);\n\n  // 在这里书写你的代码\n  cout << "hello world" << endl;\n}\n'
+	var cpp_src = '#include <stdio.h>\n#include <iostream>\nusing namespace std;\n\nint main()\n{\n  cout << "hello world" << endl;\n  \n}\n'
 	require.config({
 		paths: {
 			ace: "lib/ace"
@@ -47,7 +47,7 @@ require(["ace/ace"], function (ace) {
 		editor.getSession().setValue($('#hideSrc').text());
 	} else {
 		editor.getSession().setValue(cpp_src);
-		editor.gotoLine(10, 100, false);
+		editor.gotoLine(8, 10, false);
 	}
 	editor.focus();
 

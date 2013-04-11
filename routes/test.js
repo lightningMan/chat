@@ -25,7 +25,7 @@ exports.index = function(req, res){
 					if (error) {
 						res.send({result: stderr});
 					} else {
-						exec(exeFile, function(error, stdout, stderr) {
+						exec(cmd.exe(exeFile, inFile), function(error, stdout, stderr) {
 							res.send({result: stdout});
 							exec(cmd.rm(srcFile));
 							exec(cmd.rm(exeFile));

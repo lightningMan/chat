@@ -3,9 +3,9 @@
 }
 #container #config {
   position: absolute;
-  width: 13%;
+  width: 15%;
   height: 100%;
-  padding: 1%;
+  padding: 0.5%;
 }
 #container #config .configArea {
   margin-bottom: 50px;
