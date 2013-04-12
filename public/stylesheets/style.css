@@ -34,3 +34,7 @@ select {
   border: 1px solid #ccc;
   background: #fff;
 }
+#wrapper,
+position relative {
+  min-height: 100%;
+}

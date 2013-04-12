@@ -105,10 +105,10 @@ block content
                     - if (typeof(input) !== 'undefined')
                         =input
             #runArea
-                button#btn_share.btn.btn-success(title='创建本页代码的链接')
+                button#btn_click.btn.btn-success(title='在云端运行并返回结果')
+                    ='运行代码'
+                button#btn_share.btn.btn-inverse(title='创建本页代码的链接并分享给你的朋友')
                     ='创建分享链接'
-                button#btn_click.btn.btn-inverse(title='在云端运行并返回结果')
-                    ='运 行'
             #outputArea
                 .titleArea
                     h3 输出

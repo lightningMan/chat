@@ -1,5 +1,7 @@
 #container {
   width: 100%;
+  position: relative;
+  height: 800px;
 }
 #container #config {
   position: absolute;
@@ -34,10 +36,10 @@
 }
 #container #editor-wrap {
   position: absolute;
-  left: 15%;
+  left: 16%;
   top: 0;
   width: 48%;
-  height: 800px;
+  height: 700px;
 }
 #container #editor-wrap #editor {
   width: 100%;
@@ -54,7 +56,7 @@
   position: absolute;
   right: 20px;
   top: 0;
-  width: 35%;
+  width: 34%;
 }
 #ioArea #inputArea .titleArea h3 {
   margin-top: 2px;
@@ -70,14 +72,15 @@
   background: #fff;
 }
 #ioArea #runArea {
+  margin-top: 10px;
   position: relative;
   height: 40px;
 }
 #ioArea #runArea #btn_share {
-  float: left;
+  float: right;
 }
 #ioArea #runArea #btn_click {
-  float: right;
+  float: left;
 }
 #ioArea #outputArea pre {
   margin-top: 5px;
