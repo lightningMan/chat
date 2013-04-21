@@ -43,6 +43,9 @@ var editor;
 require(["ace/ace"], function (ace) {
 	editor = ace.edit("editor");
 	editor.getSession().setMode("ace/mode/c_cpp");
+	editor.setTheme("ace/theme/github");
+	editor.setFontSize("18px");
+
 	if ($('#hideSrc').length > 0) {
 		editor.getSession().setValue($('#hideSrc').text());
 	} else {
