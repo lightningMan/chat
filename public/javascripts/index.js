@@ -32,7 +32,7 @@ input: inData
 	};
 	$.post('/code', data, function(res) {
 		if (res.success == 1) {
-		  $('.result').html('保存成功\n您的代码地址为: ' + location.host + '/' + res.id);
+		  $('.result').html('保存成功\n您的代码地址为: http://52acm.com/' + res.id);
 		} else {
 		  $('.result').html('保存失败\n' + res.msg);
 		}
@@ -43,7 +43,7 @@ var editor;
 require(["ace/ace"], function (ace) {
 	editor = ace.edit("editor");
 	editor.getSession().setMode("ace/mode/c_cpp");
-	editor.setTheme("ace/theme/github");
+	editor.setTheme("ace/theme/XCode");
 	editor.setFontSize("18px");
 
 	if ($('#hideSrc').length > 0) {
