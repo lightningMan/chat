@@ -1,6 +1,7 @@
 var util = require('util');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var iDate = require('../tools/iDate');
 
 var dburl = require("../config").db;//数据库地址
 
@@ -22,25 +23,29 @@ var CodeScheme = new Schema({
 });
 
 var SimpleLogSchema = new Schema({
-  log: {type: String}
+	log: {type: String}, create_at: {type: Date}
 });
 
 //访问todo对象模型
 mongoose.model('Code2', CodeScheme);
 var Code = mongoose.model('Code2');
-mongoose.model('SimpleLog', SimpleLogSchema);
-var SimpleLog = mongoose.model('SimpleLog');
+mongoose.model('SimpleLog2', SimpleLogSchema);
+var SimpleLog = mongoose.model('SimpleLog2');
 
 exports.simpleLog = function(log, callback) {
   var ilog = new SimpleLog();
   ilog.log = log;
+  ilog.create_at = iDate.getDateObj();
   ilog.save(function(err, doc) {
     callback(err, doc);
   })
 }
 exports.findAllLog = function(callback) {
 
-	SimpleLog.find({}, function(err, logs) {
+	SimpleLog.find()
+		.sort({create_at: -1})
+		.exec(function(err, logs) {
+      console.log(logs.length);
 	  callback(err, logs);
 	});
 }

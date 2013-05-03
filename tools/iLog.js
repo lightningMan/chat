@@ -1,6 +1,6 @@
 var db = require('../dao/codeDao');
 var fs = require('fs');
-var logFile = './record.log';
+var iDate = require('../tools/iDate');
 Date.prototype.Format = function (fmt) { //author: meizz 
     var o = {
         "M+": this.getMonth() + 1, //月份 
@@ -17,11 +17,9 @@ Date.prototype.Format = function (fmt) { //author: meizz
     return fmt;
 }
 
-function getDate() {
-	return (new Date()).Format("yyyy-M-d h:m:s");
-}
+
 exports.log = function(str) {
-  str = str + ' at ' +  getDate();
+  str = str + ' at ' +  iDate.getDateString();
   console.log(str);
   db.simpleLog(str, function(err, doc) {
     console.log('插入日志成功: ' + doc.id);
