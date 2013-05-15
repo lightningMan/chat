@@ -38,3 +38,6 @@ select {
 position relative {
   min-height: 100%;
 }
+.fr {
+  float: right;
+}

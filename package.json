@@ -10,6 +10,7 @@
     "jade": "*",
 	"stylus": "*",
 	"connect"  : "1.8.7",
-	"mongoose" : "3.2.0"
+	"mongoose" : "3.2.0",
+	"ws": "*"
   }
 }
