@@ -1,5 +1,5 @@
 $(function() {
-	var cpp_src = '#include <cstdio>\n#include <iostream>\nusing namespace std;\n\nint main()\n{\n  cout << "hello world" << endl;\n  return 0;\n}\n'
+	var cpp_src = '#include <cstdio>\n#include <iostream>\nusing namespace std;\n\nint main()\n{\n  cout << "hello world" << endl;\n  \n  return 0;\n}\n'
 	require.config({
 		paths: {
 			ace: "lib/ace"
@@ -43,14 +43,14 @@ var editor;
 require(["ace/ace"], function (ace) {
 	editor = ace.edit("editor");
 	editor.getSession().setMode("ace/mode/c_cpp");
-	editor.setTheme("ace/theme/XCode");
+	editor.setTheme("ace/theme/xcode");
 	editor.setFontSize("18px");
 
 	if ($('#hideSrc').length > 0) {
 		editor.getSession().setValue($('#hideSrc').text());
 	} else {
 		editor.getSession().setValue(cpp_src);
-		editor.gotoLine(8, 10, false);
+		editor.gotoLine(8, 2, false);
 	}
 	editor.focus();
 
