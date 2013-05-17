@@ -15,7 +15,7 @@ var express = require('express')
 var app =  module.exports = express();
 
 app.configure(function(){
-	app.set('port', 3001 | process.env.PORT);
+	app.set('port', 81 | process.env.PORT);
 	app.set('views', __dirname + '/views');
 	app.set('view engine', 'jade');
 	app.use(express.favicon());
