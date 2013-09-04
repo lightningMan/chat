@@ -1,6 +1,6 @@
 {
   "name": "application-name",
-  "version": "0.0.1",
+  "version": "0.0.1-12",
   "private": true,
   "scripts": {
     "start": "node app"
@@ -8,9 +8,13 @@
   "dependencies": {
     "express": "3.0.0rc2",
     "jade": "*",
-	"stylus": "*",
-	"connect"  : "1.8.7",
-	"mongoose" : "3.2.0",
-	"ws": "*"
+    "stylus": "*",
+    "connect": "1.8.7",
+    "mongoose": "3.2.0",
+    "ws": "*"
+  },
+  "subdomain": "online-compile",
+  "engines": {
+    "node": "0.8.x"
   }
 }
