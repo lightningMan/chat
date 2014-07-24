@@ -14,7 +14,7 @@ exports.disconnect = function(callback) {
 }
 
 
-//定义todo对象模型
+//定义Code对象模型
 var CodeScheme = new Schema({
 	id: {type: String, index: {unique: true}},
 	src: String,
@@ -27,10 +27,10 @@ var SimpleLogSchema = new Schema({
 });
 
 //访问todo对象模型
-mongoose.model('Code2', CodeScheme);
-var Code = mongoose.model('Code2');
-mongoose.model('SimpleLog2', SimpleLogSchema);
-var SimpleLog = mongoose.model('SimpleLog2');
+mongoose.model('Code', CodeScheme);
+var Code = mongoose.model('Code');
+mongoose.model('SimpleLog', SimpleLogSchema);
+var SimpleLog = mongoose.model('SimpleLog');
 
 exports.simpleLog = function(log, callback) {
   var ilog = new SimpleLog();

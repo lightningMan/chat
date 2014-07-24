@@ -16,7 +16,7 @@ function run() {
 		src: src,
 inData: inData
 	};
-	$.post('/test', data, function(res) {
+	$.post('/compile', data, function(res) {
 		output.html(res.result);
 	});
 }
@@ -32,7 +32,8 @@ function share() {
 	};
 	$.post('/code', data, function(res) {
 		if (res.success == 1) {
-			$('.result').html('保存成功\n您的代码地址为: http://52acm.com/' + res.id);
+			var address = 'http://127.0.0.1:1337/' + res.id;
+			$('.result').html('保存成功\n您的代码地址为:' + '<a target="_blank" href = ' + address + '>'+address + '</a>');
 		} else {
 			$('.result').html('保存失败\n' + res.msg);
 		}
@@ -43,7 +44,7 @@ var editor;
 require(["ace/ace"], function (ace) {
 	editor = ace.edit("editor");
 	editor.getSession().setMode("ace/mode/c_cpp");
-	editor.setTheme("ace/theme/xcode");
+	editor.setTheme("ace/theme/monokai");
 	editor.setFontSize("18px");
 
 	if ($('#hideSrc').length > 0) {
@@ -103,61 +104,61 @@ $('#fontStyleSelect select').change(function() {
 
 //聊天室相关的监听代码
 //$(function () {
-	//var CHATSTATE = {isLogin: false};
-	//var content = $('#chat_content');
-	//var status = $('#chat_status');
-	//var input = $('#send_area');
-	//var myColor = false;
-	//var myName = false;
-	//var connection;
-	//function showChat() {
-		//$('#chat_tip').hide();
-		//$('#chat_main').show();
-		//if (CHATSTATE.isLogin == false) {
-			////connection = new WebSocket('ws://sharecode.cloudfoundry.com:3000');
-			//connection = new WebSocket('ws://sharecode.cloudfoundry.com:3001');
-			//connection.onopen = function () {
-				//status.text('选择一个昵称:');
-			//};
-			//connection.onmessage = function (message) {
-				//var json = JSON.parse(message.data);
-				//if (json.type === 'color') { // first response from the server with user's color
-					//myColor = json.data;
-					//status.text(myName + ': ').css('color', myColor);
-				//}else if (json.type === 'message') { // it's a single message
-					//addMessage(json.data.author, json.data.text,
-							//json.data.color, new Date(json.data.time));
-				//} 
-			//};
-			//CHATSTATE.isLogin = true;
-		//}
-	//}
+//var CHATSTATE = {isLogin: false};
+//var content = $('#chat_content');
+//var status = $('#chat_status');
+//var input = $('#send_area');
+//var myColor = false;
+//var myName = false;
+//var connection;
+//function showChat() {
+//$('#chat_tip').hide();
+//$('#chat_main').show();
+//if (CHATSTATE.isLogin == false) {
+////connection = new WebSocket('ws://sharecode.cloudfoundry.com:3000');
+//connection = new WebSocket('ws://sharecode.cloudfoundry.com:3001');
+//connection.onopen = function () {
+//status.text('选择一个昵称:');
+//};
+//connection.onmessage = function (message) {
+//var json = JSON.parse(message.data);
+//if (json.type === 'color') { // first response from the server with user's color
+//myColor = json.data;
+//status.text(myName + ': ').css('color', myColor);
+//}else if (json.type === 'message') { // it's a single message
+//addMessage(json.data.author, json.data.text,
+//json.data.color, new Date(json.data.time));
+//} 
+//};
+//CHATSTATE.isLogin = true;
+//}
+//}
 
-	//function hideChat() {
-		//$('#chat_main').hide();
-		//$('#chat_tip').show();
-	//}
+//function hideChat() {
+//$('#chat_main').hide();
+//$('#chat_tip').show();
+//}
 
-	//$('#chat_tip').click(showChat);
-	//$('#chat_close').click(hideChat);
+//$('#chat_tip').click(showChat);
+//$('#chat_close').click(hideChat);
 
 
-	//input.keydown(function(e) {
-		//if (e.keyCode === 13) {
-			//var msg = $(this).val();
-			//if (!msg)    return;
-			//connection.send(msg);
-			//$(this).val('');
-			//if (myName === false) {
-				//myName = msg;
-			//}
-		//}
-	//});
+//input.keydown(function(e) {
+//if (e.keyCode === 13) {
+//var msg = $(this).val();
+//if (!msg)    return;
+//connection.send(msg);
+//$(this).val('');
+//if (myName === false) {
+//myName = msg;
+//}
+//}
+//});
 
-	//function addMessage(author, message, color, dt) {
-		//content.append('<p><span style="color:' + color + '">' + author + '</span> @ ' +
-				//+ dt.getHours() + ':'
-				//+ (dt.getMinutes()<10?('0'+ dt.getMinutes()):dt.getMinutes()) + '----' + message + '</p>');
-	//}
+//function addMessage(author, message, color, dt) {
+//content.append('<p><span style="color:' + color + '">' + author + '</span> @ ' +
+//+ dt.getHours() + ':'
+//+ (dt.getMinutes()<10?('0'+ dt.getMinutes()):dt.getMinutes()) + '----' + message + '</p>');
+//}
 //});
 

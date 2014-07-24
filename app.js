@@ -5,7 +5,7 @@
 
 var express = require('express')
 , routes = require('./routes')
-, test = require('./routes/test')
+, compile = require('./routes/compile')
 , code = require('./routes/code')
 , http = require('http')
 , path = require('path')
@@ -15,28 +15,31 @@ var express = require('express')
 var app =  module.exports = express();
 
 app.configure(function(){
-	//app.set('port', 1337|process.env.PORT);
 	app.set('port', 1337);
-	app.set('views', __dirname + '/views');
-	app.set('view engine', 'jade');
 	app.use(express.favicon());
 	app.use(express.logger('dev'));
 	app.use(express.bodyParser());
 	app.use(express.methodOverride());
 	app.use(app.router);
+
+	//设置css和js模板引擎
 	app.use(require('stylus').middleware(__dirname + '/public'));
 	app.use(express.static(path.join(__dirname, 'public')));
+	app.set('views', __dirname + '/views');
+	app.set('view engine', 'jade');
 });
 
 app.configure('product', function(){
 	app.use(express.errorHandler());
 });
 
+
+//定义路由
 app.get('/', routes.index);
-app.post('/test', test.index);
+app.post('/compile', compile.index);
 app.post('/code', code.save);
-app.get('/log', iLog.show);
 app.get('/:id', code.show);
+app.get('/log', iLog.show);
 
 
 //数据库连接
@@ -44,6 +47,8 @@ db.connect(function(error){
 	if (error) console.log('数据库连接失败!')
 	else console.log('数据库已连接!');
 });
+
+
 app.on('close', function(errno) {
 	db.disconnect(function(err) {
 		if (!err) {
@@ -51,6 +56,7 @@ app.on('close', function(errno) {
 		}
 	});
 });
+
 
 
 var server = http.createServer(app).listen(app.get('port'), function(){
