@@ -30,7 +30,7 @@ function share() {
 		src: src,
 		input: inData
 	};
-	$.post('/code', data, function(res) {
+	$.post('/code/save', data, function(res) {
 		if (res.success == 1) {
 			var address = 'http://127.0.0.1:1337/' + res.id;
 			$('.result').html('保存成功\n您的代码地址为:' + '<a target="_blank" href = ' + address + '>'+address + '</a>');

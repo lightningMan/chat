@@ -1,21 +1,14 @@
-
-/**
- * Module dependencies.
- */
-
+//引入用到的模块
 var express = require('express')
 , routes = require('./routes')
-, compile = require('./routes/compile')
-, code = require('./routes/code')
 , http = require('http')
-, path = require('path')
-, db = require('./dao/codeDao')
-, iLog = require('./tools/iLog');
+, path = require('path');
 
 var app =  module.exports = express();
 
 app.configure(function(){
-	app.set('port', 1337);
+	// 设置服务器
+	app.set('port', 8888);
 	app.use(express.favicon());
 	app.use(express.logger('dev'));
 	app.use(express.bodyParser());
@@ -29,79 +22,14 @@ app.configure(function(){
 	app.set('view engine', 'jade');
 });
 
-app.configure('product', function(){
-	app.use(express.errorHandler());
-});
-
 
 //定义路由
-app.get('/', routes.index);
-app.post('/compile', compile.index);
-app.post('/code', code.save);
-app.get('/:id', code.show);
-app.get('/log', iLog.show);
-
-
-//数据库连接
-db.connect(function(error){
-	if (error) console.log('数据库连接失败!')
-	else console.log('数据库已连接!');
+app.get('/', function(req, res){
+	res.render('index', { title: '在线编译' });
 });
-
-
-app.on('close', function(errno) {
-	db.disconnect(function(err) {
-		if (!err) {
-			console.log('数据库连接关闭!');
-		}
-	});
-});
-
 
 
 var server = http.createServer(app).listen(app.get('port'), function(){
 	console.log("Express server listening on port " + app.get('port'));
 });
 
-
-//chat相关代码
-//var WebSocketServer = require('ws').Server;
-//console.log(require('util').inspect(WebSocketServer));
-//var wss = new WebSocketServer({server : server});
-//var colors = [ 'red', 'green', 'blue', 'magenta', 'purple', 'plum', 'orange' ];
-//colors.sort(function(a,b) { return Math.random() > 0.5; } );
-//var clients = [];
-
-//wss.on('connection', function(ws){
-	//clients.push(ws);
-	//var userName = false;
-	//var userColor = false;
-	//ws.on('message', function(msg){
-		//if(!userName){
-			//userName = msg;
-			//userColor = colors.shift();
-			//ws.send(JSON.stringify({ type:'color', data: userColor }));
-			//console.log(userName + ' login');
-		//}else{
-			//console.log(userName + ' say: ' + msg);
-			//var obj = {
-				//time: (new Date()).getTime(),
-		//text: msg,
-		//author: userName,
-		//color: userColor
-			//};
-			//var json = JSON.stringify({type:'message', data: obj});
-			//for (var i=0; i < clients.length; i++) {
-				//console.log(clients.length);
-				//clients[i].send(json);
-			//}
-		//}
-	//});
-	//ws.on('close', function(){
-		//if(userName !== false && userColor != false){
-			//var index = clients.indexOf(ws);
-			//clients.splice(index, 1);
-			//colors.push(userColor);
-		//}  
-	//});
-//});
