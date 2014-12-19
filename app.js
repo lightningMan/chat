@@ -1,6 +1,5 @@
 //引入用到的模块
 var express = require('express')
-, routes = require('./routes')
 , http = require('http')
 , path = require('path');
 
@@ -25,7 +24,7 @@ app.configure(function(){
 
 //定义路由
 app.get('/', function(req, res){
-	res.render('index', { title: '在线编译' });
+	res.render('chat', { title: '在线编译' });
 });
 
 
