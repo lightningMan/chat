@@ -1,9 +1,50 @@
-header
-    #main-header
-        #header-content
-            .logoArea
-                img(src='images/logo.png')
-            nav
-                ul
-                    li
-                        尽情地书写你的代码并与朋友们分享吧
+header.navbar.navbar-fixed-top.bg-primary
+    .header-container
+        .logo
+            .logo-img.pull-left
+                img(src='/img/logo.png')
+            .logo-text.pull-right
+                = '大众点评 · 在线客服'
+        .receipt-count-area
+            .dropdown
+                a.no-border.btn.btn-default.dropdown-toggle(href='#',data-toggle='dropdown',aria-haspopup='true',aria-expanded='true') 最大接线人数：5
+                    span.caret.i-caret
+                ul.dropdown-menu(role='menu',aria-labelledby='drop2')
+                    li(role='presentation')
+                        a(role='menuitem',tabindex='-1',href='#') 3
+                    li(role='presentation')
+                        a(role='menuitem',tabindex='-1',href='#') 4
+                    li(role='presentation')
+                        a(role='menuitem',tabindex='-1',href='#') 5
+                    li(role='presentation')
+                        a(role='menuitem',tabindex='-1',href='#') 6
+                    li(role='presentation')
+                        a(role='menuitem',tabindex='-1',href='#') 7
+                    li(role='presentation')
+                        a(role='menuitem',tabindex='-1',href='#') 8
+        .queue-count-area
+            = '【排队通知】：账户点评：1；团购：2；活动：3；投诉：4'
+         .kefu-right
+            .kefu-info.pull-left
+                = '工号：1111  姓名：俞超'
+            .kefu-status.pull-right
+                .dropdown.status-common.pull-left
+                    a.no-border.btn.btn-default.dropdown-toggle(href='#',data-toggle='dropdown',aria-haspopup='true',aria-expanded='true')
+                        img.status-icon(src='http://kfonline.dianping.com/view/agentchat/images/state1.png')
+                        ='在线'
+                        span.caret.i-caret
+                    ul.dropdown-menu(role='menu',aria-labelledby='drop2')
+                        li(role='presentation')
+                            a(role='menuitem',tabindex='-1',href='#') 在线
+                        li(role='presentation')
+                            a(role='menuitem',tabindex='-1',href='#') 忙碌
+                        li(role='presentation')
+                            a(role='menuitem',tabindex='-1',href='#') 用餐
+                        li(role='presentation')
+                            a(role='menuitem',tabindex='-1',href='#') 公务
+                        li(role='presentation')
+                            a(role='menuitem',tabindex='-1',href='#') 休息
+                 .status-exit.pull-right
+                     .btn.btn-danger='退出'
+
+                

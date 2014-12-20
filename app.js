@@ -24,7 +24,7 @@ app.configure(function(){
 
 //定义路由
 app.get('/', function(req, res){
-	res.render('index', { title: '在线编译' });
+	res.render('index', { title: '在线客服' });
 });
 
 
