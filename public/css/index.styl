@@ -6,17 +6,272 @@
 .sidebar-left, .sidebar-right
 	position absolute
 	padding 10px
-	width 350px
+	width 23%
 .sidebar-left
 	left 0
+	.chat-list-item
+		&.i-close
+			color gray !important
+			background gainsboro
+			img
+				-webkit-filter grayscale(100%)
+		.icon-marked
+			display none
+		.icon-unmarked
+			display block
+		&.marked
+			.icon-unmarked
+				display none
+			.icon-marked
+				display block
+
+    .i-mark
+		position absolute
+		width 25px
+		top 16px
+		left 5px
+	.user-head
+		margin-left 20px
+		height 45px
+		width 45px
 .sidebar-right
 	right 0
+/* 中间的内容 */
 .main-body
 	position absolute
-	left 350px
+	left 23%
 	background #F5F5F1
 	padding 0 10px
 	height 1000px
 	.main-body-container
+		position relative
 		background #FFF
 		height 100%
+/*聊天框头部内容开始*/		
+.chat-consult-tip
+	color #858585
+	font-size 12px
+	padding 16px 0 8px 0 
+	margin 0 16px
+	border-bottom 2px solid #e8e8e8
+.chat-user-info
+	margin-top 8px
+	width 100%
+	height 15px
+	line-height 15px
+.chat-user-info-base
+	float left
+.chat-user-info-consult-category-detail
+	float right
+.chat-order-info
+	margin-top 8px
+	span
+		margin-left 10px
+		&:first-child
+			margin-left 0
+/*聊天框头部内容结束*/
+
+/*聊天框消息内容开始*/
+.chat-body
+	padding 20px
+	overflow scroll
+.chat-message-item-time
+	background #dcdcdc
+	color #FFF
+	text-align center
+	font-size 12px
+	width 110px
+	border-radius 3px
+	margin 5px auto
+	padding 2px 5px
+.chat-message-item-content
+	padding 8px 12px
+	border-radius 10px
+	color #FFF
+	max-width 75%
+	margin 0 30px
+.chat-message-item-user
+	.chat-message-item-content
+		background #428BCA
+.chat-message-item-kefu
+	.chat-message-item-content
+		background #5CB85C
+.chat-message-item-face
+	img
+		height 50px
+		width 50px
+		border-radius 15px
+/*聊天框消息内容结束*/
+
+
+.chat-footer-edit-area
+	height 33%
+	width 100%
+	position absolute
+	bottom 0
+
+/*聊天框工具栏内容(表情等)开始*/
+.chat-footer-edit-toolbar
+	width 100%
+	padding 1%
+	background #F0F0F0
+	position relative
+	[class^='i-icon-']
+		float left
+		background url('/img/chat-edit-toolbar.png')
+		width 30px
+		height 30px
+		&:hover
+			cursor pointer
+		margin-left 5px
+	.i-icon-face
+		background-position -35px 0
+		&:hover
+			background-position -35px 64px
+
+	.i-icon-pic
+		background-position -69px 0
+		&:hover
+			background-position -69px 64px
+	.i-icon-transfer
+		background-position -104px 0
+		&:hover
+			background-position -104px 64px
+	.recommend-situation
+		float left
+		width 95px
+		height 30px
+		line-height 30px
+		padding 0 6px
+		&:hover
+			cursor pointer
+			background url('/img/chat-edit-toolbar.png') -210px 64px
+	.i-icon-heart
+		margin-left 0
+		width 20px
+		background-position -216px 0
+	.recommend-situation-text
+		float left
+		font-size 12px
+		color #000
+/*聊天框工具栏内容结束*/
+
+
+/*聊天输入框内容开始*/
+.chat-footer-edit-text
+	border 0
+	padding 5px 10px
+	width 100%
+	height 60%
+	resize none
+	outline none
+/*聊天输入框内容结束*/
+
+/*聊天按钮和结束对话内容开始*/
+.chat-footer-edit-btn
+	width 100%
+	padding 2% 1%
+	background #F5F5F1
+	position relative
+	.btn
+		margin-left 10px !important
+		border none
+		outline none
+/*聊天按钮和结束对话内容结束*/
+
+.user-info
+	position relative
+	margin-left 10px
+	width 60%
+	height 45px
+	.user-nick-name-from
+		position absolute
+		top 0
+	.last-message
+		position absolute
+		bottom 0
+		color gray
+.i-badge
+	position absolute
+	top 10px
+	top 22px
+	right 3px
+
+
+
+
+/*右侧样式开始*/	
+#commonly-used-terms
+	padding-top 10px
+.commonly-used-terms-content
+	margin-top 10px
+.commonly-used-terms-header
+	background-color #f5f5f5
+	margin 0
+	border-radius 3px 3px 0 0
+	border 1px solid #d8d8d8
+	border-bottom 0
+	padding 9px 10px 10px
+	font-size 14px
+	line-height 17px
+	display block
+.commonly-used-terms-body
+	overflow hidden
+	margin-bottom 20px
+	font-size 12px
+	border 1px solid #ddd
+	h3
+		margin 0px
+		color #666
+		border-bottom 1px solid #eee
+		font-size 14px
+		line-height 34px
+		padding-left 27px
+		position relative
+.commonly-used-terms-first-type
+	margin 0
+.arrow-btn
+	background url('/img/expand-arrows.png')
+	width 13px
+	height 100%
+	position absolute
+	padding 0 4px
+	left 4px
+	&.toggle-hide
+		background-position -10px -2px
+	&.toggle-show
+		background-position 25px -5px
+.commonly-used-terms-second-type
+	display none
+	li
+		padding 6px 0px 6px 30px
+		border-bottom 1px solid #eee
+
+
+
+#history-message
+	padding-top 10px
+.history-message-body
+	margin-top 3%
+	overflow-y scroll
+	height 80%
+.history-message-section-day
+	h4
+		margin-top 0	
+.history-message-item
+	margin-top 5px
+
+.history-message-section
+	margin-bottom 35px
+	&:last
+		margin-bottom 0
+.history-message-section-day			
+	border-bottom 1px solid #000
+	color #00F
+.history-message-item-nickname-kefu
+	font-size 11px
+	color #428BCA
+.history-message-item-nickname-user
+	font-size 11px
+	color #5CB85C
+/*右侧样式结束*/	

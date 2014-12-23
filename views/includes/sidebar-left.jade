@@ -1,11 +1,55 @@
 .sidebar-left#j-sidebar-left
     ul.nav.nav-tabs(role='tablist')
         li.active(role="presentation")
-            a#current-user-tab(href="#current-user",role="tab",data-toggle="tab",aria-controls="current-user", aria-expanded="true") 当前访客
+            a#current-user-tab(href="#current-user-container",role="tab",data-toggle="tab",aria-controls="current-user-container", aria-expanded="true") 当前访客
         li(role="presentation")
-            a#history-user-tab(href="#history-user",role="tab",data-toggle="tab",aria-controls="history-user", aria-expanded="false") 历史访客
+            a#history-user-tab(href="#history-user-container",role="tab",data-toggle="tab",aria-controls="history-user-container", aria-expanded="false") 历史访客
     .tab-content
-        .tab-pane.fade.active.in#current-user(role='tabpanel', aria-labelledby='current-user-tab')
-            p Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
-        .tab-pane.fade#history-user(role='tabpanel', aria-labelledby='history-user-tab')
-            p Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.
+        .tab-pane.fade.active.in#current-user-container(role='tabpanel', aria-labelledby='current-user-tab')
+            ul.list-group
+                li.chat-list-item.list-group-item.no-border.clearfix.marked
+                    a
+                        img.i-mark.icon-unmarked(src='/img/mark-close.png')
+                        img.i-mark.icon-marked(src='/img/mark-open.png')
+
+                    img.user-head.pull-left(src='/img/default-head.png')
+                    .user-info.pull-left
+                        .user-nick-name-from
+                            strong 东风破破破(手机)
+                        .last-message
+                            诶哟，今天天气不错
+                    span.badge.badge-danger.i-badge 14
+                li.chat-list-item.list-group-item.no-border.clearfix
+                    a
+                        img.i-mark.icon-unmarked(src='/img/mark-close.png')
+                        img.i-mark.icon-marked(src='/img/mark-open.png')
+                    img.user-head.pull-left(src='/img/1.png')
+                    .user-info.pull-left
+                        .user-nick-name-from
+                            strong 东风破破破(PC)
+                        .last-message
+                            诶哟，今天天气不错
+                    span.badge.badge-info.i-badge !
+                li.chat-list-item.list-group-item.no-border.clearfix
+                    a
+                        img.i-mark.icon-unmarked(src='/img/mark-close.png')
+                        img.i-mark.icon-marked(src='/img/mark-open.png')
+                    img.user-head.pull-left(src='/img/2.png')
+                    .user-info.pull-left
+                        .user-nick-name-from
+                            strong 东风破破破(微信)
+                        .last-message
+                            诶哟，今天天气不错
+                    a.badge.badge-close.i-badge X
+                li.chat-list-item.list-group-item.no-border.clearfix.i-close
+                    a
+                        img.i-mark.icon-unmarked(src='/img/mark-close.png')
+                        img.i-mark.icon-marked(src='/img/mark-open.png')
+                    img.user-head.pull-left(src='http://preview.quanjing.com/ibrf006/ibxkre00600484.jpg')
+                    .user-info.pull-left
+                        .user-nick-name-from
+                            strong 东风破破破(手机)
+                        .last-message
+                            诶哟，今天天气不错
+                    span.badge.badge-danger.i-badge 14
+        .tab-pane.fade#history-user-container(role='tabpanel', aria-labelledby='history-user-tab')

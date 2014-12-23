@@ -1,11 +1,150 @@
 .sidebar-right#j-sidebar-right
-    ul.nav.nav-tabs(role='tablist')
+    ul.nav.nav-tabs#j-tablist(role='tablist')
         li.active(role="presentation")
             a#commonly-used-terms-tab(href="#commonly-used-terms",role="tab",data-toggle="tab",aria-controls="commonly-used-terms", aria-expanded="true") 常用术语
         li(role="presentation")
             a#history-message-tab(href="#history-message",role="tab",data-toggle="tab",aria-controls="history-message", aria-expanded="false") 历史消息
     .tab-content
         .tab-pane.fade.active.in#commonly-used-terms(role='tabpanel', aria-labelledby='commonly-used-terms-tab')
-            p Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
-        .tab-pane.fade#history-message(role='tabpanel', aria-labelledby='history-message-tab')
-            p Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.
+            .commonly-used-terms-search
+                input.form-control(placeholder="搜索常用术语")
+            .commonly-used-terms-content
+                .commonly-used-terms-header
+                    公共
+                .commonly-used-terms-body
+                    ul.commonly-used-terms-first-type
+                        li
+                            h3
+                                a.arrow-btn.toggle-hide.click-toggle(toggle-target='#j-cutst-1')
+                                span 退款操作
+                            ul.commonly-used-terms-second-type#j-cutst-1
+                                li 
+                                    a 我要退款1
+                                li  
+                                    a 我要退款2
+                                li  
+                                    a 我要退款3
+                                li 
+                                    a 我要退款4
+                                li 
+                                    a 我要退款5
+                        li
+                            h3
+                                a.arrow-btn.toggle-hide.click-toggle(toggle-target='#j-cutst-2')
+                                span 钱款查询
+                            ul.commonly-used-terms-second-type#j-cutst-2
+                                li
+                                    a 钱款查询1
+                                li
+                                    a 钱款查询2
+                                li
+                                    a 钱款查询3
+                                li
+                                    a 钱款查询4
+                .commonly-used-terms-header
+                    自定义
+                .commonly-used-terms-body
+                    ul.commonly-used-terms-first-type
+                        li
+                            h3
+                                a.arrow-btn.toggle-hide
+                                span 退款操作
+                            ul.commonly-used-terms-second-type
+                                li 
+                                    a 我要退款1
+                                li 
+                                    a 我要退款2
+                                li 
+                                    a 我要退款3
+                                li 
+                                    a 我要退款4
+                                li 
+                                    a 我要退款5
+        .tab-pane.j-history-message.fade#history-message(role='tabpanel', aria-labelledby='history-message-tab')
+            .history-message-header
+                input.form-control(placeholder="搜索历史记录")
+            .history-message-body
+                .history-message-section
+                    .history-message-section-day
+                        h4 日期:2014-11-11 
+                    ul.history-message-section-content
+                        li.history-message-item
+                            .history-message-item-nickname-kefu
+                                客服小点 12:15:08
+                            .history-message-item-content
+                                你叫什么名字?
+                        li.history-message-item
+                            .history-message-item-nickname-user
+                                东风破 12:15:59
+                            .history-message-item-content
+                                我叫俞超
+                        li.history-message-item
+                            .history-message-item-nickname-kefu
+                                客服小点 12:17:08
+                            .history-message-item-content
+                                好的，拜拜!
+                        li.history-message-item
+                            .history-message-item-nickname-user
+                                东风破 12:19:08
+                            .history-message-item-content
+                                拜拜你妹！给劳资的黄焖鸡退款!
+                .history-message-section
+                    .history-message-section-day
+                        h4 日期:2014-11-12 
+                    ul.history-message-section-content
+                        li.history-message-item
+                            .history-message-item-nickname-kefu
+                                客服小点 12:15:08
+                            .history-message-item-content
+                                你妹的，又是你?
+                        li.history-message-item
+                            .history-message-item-nickname-user
+                                东风破 12:15:59
+                            .history-message-item-content
+                                是啊，劳资又来了!
+                        li.history-message-item
+                            .history-message-item-nickname-kefu
+                                客服小点 12:17:08
+                            .history-message-item-content
+                                滚~
+                        li.history-message-item
+                            .history-message-item-nickname-user
+                                东风破 12:19:08
+                            .history-message-item-content
+                                好，劳资滚去投诉你!
+                .history-message-section
+                    .history-message-section-day
+                        h4 日期:2014-11-15
+                    ul.history-message-section-content
+                        li.history-message-item
+                            .history-message-item-nickname-user
+                                东风破 12:15:59
+                            .history-message-item-content
+                                哈哈哈，好久不见
+                        li.history-message-item
+                            .history-message-item-nickname-kefu
+                                客服小点 12:17:08
+                            .history-message-item-content
+                                想我了？
+                        li.history-message-item
+                            .history-message-item-nickname-user
+                                东风破 12:19:08
+                            .history-message-item-content
+                                只是来看看你挂了没有。。。
+            .history-message-footer
+                nav
+                    ul.pagination
+                        li
+                            a='&laquo;'
+                        li
+                            a='1'
+                        li
+                            a='2'
+                        li
+                            a='3'
+                        li
+                            a='4'
+                        li
+                            a='5'
+                        li
+                            a='&raquo;'

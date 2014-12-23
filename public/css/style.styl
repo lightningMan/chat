@@ -1,4 +1,4 @@
-body, p, pre, h1, h2, h3, h4, h5, textarea
+body, p, pre, h1, h2, h3, h4, h5, textarea,ul,li
 	margin 0
 	padding 0
 
@@ -10,15 +10,21 @@ body
 
 a
 	color #00B7FF
-
-pre
-	background #F5F5F1
-	overflow auto
-
-code
-	font-family Consolas Menlo Monaco Lucida Console Liberation Mono DejaVu Sans MonoBitstream Vera Sans MonoCourier Newmonospace serif
+li
+	list-style-type none
 .caret.i-caret
 	margin-left 5px !important
 .no-border 
 	border 0 !important
-
+.badge
+	&.badge-danger
+		background #F00 !important
+	&.badge-info
+		background #428BCA !important
+	&.badge-close
+		padding 5px 8px
+		font-size 12px
+		font-weight normal
+		border-radius 12px
+a:hover
+	cursor pointer
