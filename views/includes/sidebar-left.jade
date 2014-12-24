@@ -5,8 +5,8 @@
         li(role="presentation")
             a#history-user-tab(href="#history-user-container",role="tab",data-toggle="tab",aria-controls="history-user-container", aria-expanded="false") 历史访客
     .tab-content
-        .tab-pane.fade.active.in#current-user-container(role='tabpanel', aria-labelledby='current-user-tab')
-            ul.list-group
+        .tab-pane.fade.active.in.j-chat-list#current-user-container(role='tabpanel', aria-labelledby='current-user-tab')
+            ul.list-group#j-chat-list-current-user
                 li.chat-list-item.list-group-item.no-border.clearfix.marked
                     a
                         img.i-mark.icon-unmarked(src='/img/mark-close.png')
@@ -30,7 +30,7 @@
                         .last-message
                             诶哟，今天天气不错
                     span.badge.badge-info.i-badge !
-                li.chat-list-item.list-group-item.no-border.clearfix
+                li.chat-list-item.list-group-item.no-border.clearfix#chat-list-item-1
                     a
                         img.i-mark.icon-unmarked(src='/img/mark-close.png')
                         img.i-mark.icon-marked(src='/img/mark-open.png')
@@ -40,7 +40,7 @@
                             strong 东风破破破(微信)
                         .last-message
                             诶哟，今天天气不错
-                    a.badge.badge-close.i-badge X
+                    a.badge.badge-close.i-badge.j-click-remove(click-target='#chat-list-item-1') X
                 li.chat-list-item.list-group-item.no-border.clearfix.i-close
                     a
                         img.i-mark.icon-unmarked(src='/img/mark-close.png')
@@ -52,4 +52,52 @@
                         .last-message
                             诶哟，今天天气不错
                     span.badge.badge-danger.i-badge 14
-        .tab-pane.fade#history-user-container(role='tabpanel', aria-labelledby='history-user-tab')
+        .tab-pane.fade.j-chat-list#history-user-container(role='tabpanel', aria-labelledby='history-user-tab')
+            ul.list-group#j-chat-list-history-user
+                li.chat-list-item.list-group-item.no-border.clearfix.marked
+                    a
+                        img.i-mark.icon-unmarked(src='/img/mark-close.png')
+                        img.i-mark.icon-marked(src='/img/mark-open.png')
+
+                    img.user-head.pull-left(src='/img/default-head.png')
+                    .user-info.pull-left
+                        .user-nick-name-from
+                            strong 东风破破破(手机)
+                        .last-message
+                            诶哟，今天天气不错
+                    span.badge.badge-satisfied.i-badge=' '
+                li.chat-list-item.list-group-item.no-border.clearfix
+                    a
+                        img.i-mark.icon-unmarked(src='/img/mark-close.png')
+                        img.i-mark.icon-marked(src='/img/mark-open.png')
+                    img.user-head.pull-left(src='/img/1.png')
+                    .user-info.pull-left
+                        .user-nick-name-from
+                            strong 东风破破破(PC)
+                        .last-message
+                            诶哟，今天天气不错
+                    span.badge.badge-disatisfied.i-badge=' '
+                li.chat-list-item.list-group-item.no-border.clearfix
+                    a
+                        img.i-mark.icon-unmarked(src='/img/mark-close.png')
+                        img.i-mark.icon-marked(src='/img/mark-open.png')
+                    img.user-head.pull-left(src='/img/2.png')
+                    .user-info.pull-left
+                        .user-nick-name-from
+                            strong 东风破破破(微信)
+                        .last-message
+                            诶哟，今天天气不错
+                    span.badge.badge-no-evaluation.i-badge=' '
+#j-chat-list-item-current-user.hide                    
+    li.chat-list-item.list-group-item.no-border.clearfix.marked
+        a
+            img.i-mark.icon-unmarked(src='/img/mark-close.png')
+            img.i-mark.icon-marked(src='/img/mark-open.png')
+
+        img.user-head.pull-left(src='/img/default-head.png')
+        .user-info.pull-left
+            .user-nick-name-from
+                strong 东风破破破(手机)
+            .last-message
+                诶哟，今天天气不错
+        span.badge.badge-danger.i-badge 14

@@ -1,5 +1,6 @@
 .main-container
 	width 100%
+	height 100%
 	position absolute
 	top 50px
 
@@ -7,8 +8,13 @@
 	position absolute
 	padding 10px
 	width 23%
+	li[role='presentation']
+		width 49%
+		text-align center
 .sidebar-left
 	left 0
+	.tab-content
+		overflow scroll
 	.chat-list-item
 		&.i-close
 			color gray !important
@@ -61,6 +67,11 @@
 	line-height 15px
 .chat-user-info-base
 	float left
+	color cadetblue
+	span
+		margin-left 5px
+		&.chat-user-info-base-nickName
+			margin-left 0
 .chat-user-info-consult-category-detail
 	float right
 .chat-order-info
@@ -92,10 +103,37 @@
 	margin 0 30px
 .chat-message-item-user
 	.chat-message-item-content
+		position relative
 		background #428BCA
+		&:before
+			right 100%
+			top 10px
+			position absolute
+			width 0
+			height 0
+			content '.'
+			color transparent
+			border-top 9px solid transparent
+			border-bottom 1px solid transparent
+			border-left 15px solid transparent
+			border-right 15px solid #428BCA
 .chat-message-item-kefu
 	.chat-message-item-content
 		background #5CB85C
+		position relative
+		color #000
+		&:after
+			left 100%
+			top 10px
+			position absolute
+			width 0
+			height 0
+			content '.'
+			color transparent
+			border-top 9px solid transparent
+			border-bottom 1px solid transparent
+			border-right 15px solid transparent
+			border-left 15px solid #5CB85C
 .chat-message-item-face
 	img
 		height 50px
@@ -123,7 +161,7 @@
 		height 30px
 		&:hover
 			cursor pointer
-		margin-left 5px
+		margin-left 8px
 	.i-icon-face
 		background-position -35px 0
 		&:hover
@@ -142,6 +180,7 @@
 		width 95px
 		height 30px
 		line-height 30px
+		margin-left 8px
 		padding 0 6px
 		&:hover
 			cursor pointer

@@ -11,7 +11,8 @@ $(function(){
 		.width(windowWidth - leftBarWidth - rightBarWidth-60)
 	    .height(windowHeight - headerHeight);
 
-	$('#j-chat-body').height($('#j-main-body-container').height() - $('#j-chat-header').height() - $('#j-chat-footer').height() -40)
+	$('#j-chat-body').height($('#j-main-body-container').height() - $('#j-chat-header').height() - $('#j-chat-footer').height() -40);
+$('.j-chat-list').height(windowHeight*0.80);
 	/*这里减掉的20px是padding*/
 	$('#j-sidebar-right').height(windowHeight - 20);
 $('.j-history-message').height(windowHeight - $('#j-tablist').height()-30);
@@ -23,7 +24,7 @@ $('.j-history-message').height(windowHeight - $('#j-tablist').height()-30);
  *
  *
  */
-$(document).delegate('.click-toggle', 'click', function(){
+$(document).delegate('.j-click-toggle', 'click', function(){
 	var _this = $(this);
 	var selector = _this.attr('toggle-target');
 	if ($(selector).css('display') == 'none') {
@@ -34,13 +35,18 @@ $(document).delegate('.click-toggle', 'click', function(){
 	$(selector).slideToggle(300);
 });
 
-$(document).delegate('.click-hide', 'click', function(){
+$(document).delegate('.j-click-hide', 'click', function(){
 	var _this = $(this);
 	var selector = _this.attr('hide-target');
 	$(selector).slideUp(500);
 });
 
 
+$(document).delegate('.j-click-remove', 'click', function(){
+	var _this = $(this);
+	var selector = _this.attr('click-target');
+	$(selector).remove();
+});
 
 
 

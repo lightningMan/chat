@@ -4,18 +4,18 @@
             .chat-consult-tip
                 .chat-user-info
                     .chat-user-info-base
-                        span 东风破
-                        span (15605198269)
+                        span.chat-user-info-base-nickName 东风破
+                        span='| 15605198269 |'
                         span 南京
                     .chat-user-info-consult-category-detail
                         span 【PC】常规咨询--投诉
                 .chat-order-info
-                     span 正在咨询：【65445444】
+                     span 正在咨询：【订单号65445444】
                      a(href='http://t.dianping.com/deal/154678',target='_blank')超级好吃的黄焖鸡
                      span 100张
                      span 订单金额：1000000
         .chat-body#j-chat-body
-            .chat-message-list
+            .chat-message-list#j-chat-message-list
                 .chat-message-item.clearfix
                     .chat-message-item-time
                         ='2014-11-11 11:11'
@@ -58,7 +58,7 @@
                             ='滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚!'
         .chat-footer-edit-area#j-chat-footer
             .chat-footer-edit-toolbar.clearfix
-                a.i-icon-face.click-toggle(title='选择表情', toggle-target='#j-chat-qq-face')
+                a.i-icon-face.j-click-toggle(title='选择表情', toggle-target='#j-chat-qq-face')
                 .chat-qq-face#j-chat-qq-face
                 a.i-icon-pic(title='上传图片')
                 a.i-icon-transfer(title='转接', data-toggle="modal", data-target=".bs-example-modal-sm")
@@ -79,10 +79,28 @@
                     i.i-icon-heart
                     span.recommend-situation-text 满意度评价
 
-            .chat-footer-edit-text.click-hide(contenteditable='true', hide-target='#j-chat-qq-face')
+            #j-chat-edit-area.chat-footer-edit-text.j-click-hide(contenteditable='true', hide-target='#j-chat-qq-face')
             .chat-footer-edit-btn.clearfix
                 .btn-items.pull-right
                     button.btn.btn-danger 结束对话
                       //-i.glyphicon.glyphicon-remove
                     button.btn.btn-success 发送
                       //-i.glyphicon.glyphicon-ok
+#j-message-template-kefu.hide
+    .chat-message-item.clearfix
+        .chat-message-item-time
+            ='2014-11-11 11:11'
+        .chat-message-item-kefu.pull-right
+            .chat-message-item-face.pull-right
+                img(src='/img/1.png')
+            .chat-message-item-content.pull-right
+                ='请问你叫什么名字?'
+#j-message-template-user.hide
+    .chat-message-item.clearfix
+        .chat-message-item-time
+            ='2014-11-11 11:16'
+        .chat-message-item-user.pull-left
+            .chat-message-item-face.pull-left
+                img(src='/img/2.png')
+            .chat-message-item-content.pull-left
+                ='拜拜你妹，劳资还没问问题呢，给劳资的黄焖鸡退款!'
