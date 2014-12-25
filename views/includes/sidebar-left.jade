@@ -8,7 +8,7 @@
         .tab-pane.fade.active.in.j-chat-list#current-user-container(role='tabpanel', aria-labelledby='current-user-tab')
             ul.list-group#j-chat-list-current-user
                 li.chat-list-item.list-group-item.no-border.clearfix.marked
-                    a
+                    a.j-click-toggle.toggle-hide
                         img.i-mark.icon-unmarked(src='/img/mark-close.png')
                         img.i-mark.icon-marked(src='/img/mark-open.png')
 
@@ -20,7 +20,7 @@
                             诶哟，今天天气不错
                     span.badge.badge-danger.i-badge 14
                 li.chat-list-item.list-group-item.no-border.clearfix
-                    a
+                    a.j-click-toggle.toggle-hide
                         img.i-mark.icon-unmarked(src='/img/mark-close.png')
                         img.i-mark.icon-marked(src='/img/mark-open.png')
                     img.user-head.pull-left(src='/img/1.png')
@@ -31,7 +31,7 @@
                             诶哟，今天天气不错
                     span.badge.badge-info.i-badge !
                 li.chat-list-item.list-group-item.no-border.clearfix#chat-list-item-1
-                    a
+                    a.j-click-toggle.toggle-hide
                         img.i-mark.icon-unmarked(src='/img/mark-close.png')
                         img.i-mark.icon-marked(src='/img/mark-open.png')
                     img.user-head.pull-left(src='/img/2.png')
@@ -42,7 +42,7 @@
                             诶哟，今天天气不错
                     a.badge.badge-close.i-badge.j-click-remove(click-target='#chat-list-item-1') X
                 li.chat-list-item.list-group-item.no-border.clearfix.i-close
-                    a
+                    a.marked.j-click-toggle.toggle-hide
                         img.i-mark.icon-unmarked(src='/img/mark-close.png')
                         img.i-mark.icon-marked(src='/img/mark-open.png')
                     img.user-head.pull-left(src='http://preview.quanjing.com/ibrf006/ibxkre00600484.jpg')
@@ -55,7 +55,7 @@
         .tab-pane.fade.j-chat-list#history-user-container(role='tabpanel', aria-labelledby='history-user-tab')
             ul.list-group#j-chat-list-history-user
                 li.chat-list-item.list-group-item.no-border.clearfix.marked
-                    a
+                    a.marked.j-click-toggle.toggle-hide
                         img.i-mark.icon-unmarked(src='/img/mark-close.png')
                         img.i-mark.icon-marked(src='/img/mark-open.png')
 
@@ -67,7 +67,7 @@
                             诶哟，今天天气不错
                     span.badge.badge-satisfied.i-badge=' '
                 li.chat-list-item.list-group-item.no-border.clearfix
-                    a
+                    a.marked.j-click-toggle.toggle-hide
                         img.i-mark.icon-unmarked(src='/img/mark-close.png')
                         img.i-mark.icon-marked(src='/img/mark-open.png')
                     img.user-head.pull-left(src='/img/1.png')
@@ -78,7 +78,7 @@
                             诶哟，今天天气不错
                     span.badge.badge-disatisfied.i-badge=' '
                 li.chat-list-item.list-group-item.no-border.clearfix
-                    a
+                    a.marked.j-click-toggle.toggle-hide
                         img.i-mark.icon-unmarked(src='/img/mark-close.png')
                         img.i-mark.icon-marked(src='/img/mark-open.png')
                     img.user-head.pull-left(src='/img/2.png')

@@ -8,6 +8,7 @@
 	position absolute
 	padding 10px
 	width 23%
+	height 100%
 	li[role='presentation']
 		width 49%
 		text-align center
@@ -19,13 +20,14 @@
 		&.i-close
 			color gray !important
 			background gainsboro
-			img
+			img.user-head
 				-webkit-filter grayscale(100%)
-		.icon-marked
-			display none
-		.icon-unmarked
-			display block
-		&.marked
+		.toggle-hide
+			.icon-marked
+				display none
+			.icon-unmarked
+				display block
+		.toggle-show
 			.icon-unmarked
 				display none
 			.icon-marked
@@ -93,14 +95,17 @@
 	font-size 12px
 	width 110px
 	border-radius 3px
-	margin 5px auto
+	margin 0 auto
 	padding 2px 5px
+	display none
 .chat-message-item-content
+	margin 5px 30px
 	padding 8px 12px
 	border-radius 10px
 	color #FFF
 	max-width 75%
-	margin 0 30px
+	img.paste-img
+		width 100%
 .chat-message-item-user
 	.chat-message-item-content
 		position relative
@@ -151,9 +156,9 @@
 /*聊天框工具栏内容(表情等)开始*/
 .chat-footer-edit-toolbar
 	width 100%
+	height 20%
 	padding 1%
 	background #F0F0F0
-	position relative
 	[class^='i-icon-']
 		float left
 		background url('/img/chat-edit-toolbar.png')
@@ -201,14 +206,16 @@
 	border 0
 	padding 5px 10px
 	width 100%
-	height 60%
+	height 55%
 	resize none
 	outline none
+	overflow scroll
 /*聊天输入框内容结束*/
 
 /*聊天按钮和结束对话内容开始*/
 .chat-footer-edit-btn
 	width 100%
+	height 25%
 	padding 2% 1%
 	background #F5F5F1
 	position relative
@@ -281,8 +288,8 @@
 	&.toggle-show
 		background-position 25px -5px
 .commonly-used-terms-second-type
-	display none
 	li
+		display none
 		padding 6px 0px 6px 30px
 		border-bottom 1px solid #eee
 
@@ -293,7 +300,7 @@
 .history-message-body
 	margin-top 3%
 	overflow-y scroll
-	height 80%
+	height 50%
 .history-message-section-day
 	h4
 		margin-top 0	

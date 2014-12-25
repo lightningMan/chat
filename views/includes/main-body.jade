@@ -58,7 +58,7 @@
                             ='滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚!'
         .chat-footer-edit-area#j-chat-footer
             .chat-footer-edit-toolbar.clearfix
-                a.i-icon-face.j-click-toggle(title='选择表情', toggle-target='#j-chat-qq-face')
+                a.i-icon-face.j-click-toggle.toggle-hide#j-i-icon-face(title='选择表情', toggle-target='#j-chat-qq-face')
                 .chat-qq-face#j-chat-qq-face
                 a.i-icon-pic(title='上传图片')
                 a.i-icon-transfer(title='转接', data-toggle="modal", data-target=".bs-example-modal-sm")
@@ -84,7 +84,7 @@
                 .btn-items.pull-right
                     button.btn.btn-danger 结束对话
                       //-i.glyphicon.glyphicon-remove
-                    button.btn.btn-success 发送
+                    button.btn.btn-success.j-click(click-target-method='appendMessageUI()') 发送
                       //-i.glyphicon.glyphicon-ok
 #j-message-template-kefu.hide
     .chat-message-item.clearfix
